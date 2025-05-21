@@ -1,0 +1,37 @@
+
+
+use carbon_core::{CarbonDeserialize, borsh};
+
+
+#[derive(CarbonDeserialize, Debug, serde::Serialize, serde::Deserialize, PartialEq, Eq, Clone, Hash)]
+#[carbon(discriminator = "0x3ec7514e210dec3d")]
+pub struct MarginfiGroupConfigure{
+    pub new_admin: solana_pubkey::Pubkey,
+    pub is_arena_group: bool,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash, serde::Serialize, serde::Deserialize)]
+pub struct MarginfiGroupConfigureInstructionAccounts {
+    pub marginfi_group: solana_pubkey::Pubkey,
+    pub admin: solana_pubkey::Pubkey,
+}
+
+impl carbon_core::deserialize::ArrangeAccounts for MarginfiGroupConfigure {
+    type ArrangedAccounts = MarginfiGroupConfigureInstructionAccounts;
+
+    fn arrange_accounts(accounts: &[solana_instruction::AccountMeta]) -> Option<Self::ArrangedAccounts> {
+        let [
+            marginfi_group,
+            admin,
+            _remaining @ ..
+        ] = accounts else {
+            return None;
+        };
+       
+
+        Some(MarginfiGroupConfigureInstructionAccounts {
+            marginfi_group: marginfi_group.pubkey,
+            admin: admin.pubkey,
+        })
+    }
+}

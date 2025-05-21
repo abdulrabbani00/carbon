@@ -1420,17 +1420,6 @@ name = "carbon-macros"
 version = "0.8.1"
 
 [[package]]
-name = "carbon-marginfi-v2-decoder"
-version = "0.8.1"
-dependencies = [
- "carbon-core",
- "serde",
- "solana-account",
- "solana-instruction",
- "solana-pubkey",
-]
-
-[[package]]
 name = "carbon-marinade-finance-decoder"
 version = "0.8.1"
 dependencies = [
@@ -4125,6 +4114,20 @@ name = "lru-slab"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "112b39cec0b298b6c1999fee3e31427f74f676e4cb9879ed1a121b43661a4154"
+
+[[package]]
+name = "marginfi-v2-decoder-v0_1_2"
+version = "0.8.2"
+dependencies = [
+ "carbon-core",
+ "carbon-macros",
+ "carbon-proc-macros",
+ "serde",
+ "serde-big-array",
+ "solana-account",
+ "solana-instruction",
+ "solana-pubkey",
+]
 
 [[package]]
 name = "matchit"
