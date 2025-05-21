@@ -1,0 +1,16 @@
+[package]
+name = "mrgn-parse"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+async-trait = { workspace = true }
+carbon-core = { workspace = true }
+carbon-log-metrics = { workspace = true }
+carbon-yellowstone-grpc-datasource = { workspace = true }
+dotenv = { workspace = true }
+env_logger = { workspace = true }
+log = { workspace = true }
+marginfi-v2-decoder-v0_1_2 = { path = "../../decoders/marginfi-v2-decoder-v0_1_2" }
+tokio = { workspace = true, features = ["full"] }
+yellowstone-grpc-proto = { workspace = true }
